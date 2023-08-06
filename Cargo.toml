@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Tristan Gerritsen"]
 license = "Apache-2.0"
-license-file = "COPYING"
 description = "A fast CPU path rasterizer"
 homepage = "https://github.com/usadson/rasterizzatore"
 
