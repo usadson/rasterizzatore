@@ -2,7 +2,10 @@
 name = "rasterizzatore"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["Tristan Gerritsen"]
+license = "Apache-2.0"
+license-file = "COPYING"
+description = "A fast CPU path rasterizer"
+homepage = "https://github.com/usadson/rasterizzatore"
 
 [dependencies]
