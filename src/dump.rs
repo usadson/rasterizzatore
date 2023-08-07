@@ -1,8 +1,12 @@
 // Copyright (C) 2023 Tristan Gerritsen <tristan@thewoosh.org>
 // All Rights Reserved.
 
-use crate::{Canvas, Rgba};
+use crate::{
+    Canvas,
+    Rgba,
+};
 
+/// Some symbols which are useful for dumping pixels to the console.
 mod symbols {
     pub const FULL_BLOCK: char = '█';
     pub const DARK_SHADE: char = '▓';
@@ -10,8 +14,20 @@ mod symbols {
     pub const LIGHT_SHADE: char = '░';
 }
 
+/// This trait extends the types of this crate with a utility function
+/// `dump_to_console`.
+///
+/// Dumping to the console can be useful, e.g. for debugging the draw calls
+/// without setting up a whole graphics stack, which can be hard or slow to do.
+///
+/// Deriving from [`Debug`] or [`Display`][core::fmt::Display] can otherwise
+/// lead to accidental dumping of large data structures. Another advantage is
+/// that this functionality can be disabled with the appropriate feature flags.
 pub trait DumpToConsole {
+
+    /// Dump this type to the console.
     fn dump_to_console(&self);
+
 }
 
 #[cfg(feature = "dump-colored")]

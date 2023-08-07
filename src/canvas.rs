@@ -1,8 +1,13 @@
 // Copyright (C) 2023 Tristan Gerritsen <tristan@thewoosh.org>
 // All Rights Reserved.
 
-use crate::{rgba::Rgba, point::Point};
+use crate::{
+    point::Point,
+    rgba::Rgba,
+};
 
+/// The canvas is the thing on which can be drawn. This structure holds the
+/// pixels for a certain image and provides functions to modify those values.
 pub struct Canvas {
     width: u32,
     height: u32,
@@ -11,6 +16,7 @@ pub struct Canvas {
 
 impl Canvas {
 
+    /// Create a new canvas with a given width and height.
     pub fn new(width: u32, height: u32) -> Self {
         Self {
             width,
@@ -19,6 +25,7 @@ impl Canvas {
         }
     }
 
+    /// Clear the whole canvas with a solid fill color.
     pub fn clear(&mut self, color: Rgba) {
         self.pixels.fill(color);
     }
@@ -57,22 +64,26 @@ impl Canvas {
         }
     }
 
+    /// Get the width (in pixels) of the canvas.
     #[inline]
     pub const fn width(&self) -> u32 {
         self.width
     }
 
+    /// Get the height (in pixels) of the canvas.
     #[inline]
     pub const fn height(&self) -> u32 {
         self.height
     }
 
+    /// Get the color value of a given pixel.
     pub fn get_pixel(&self, x: u32, y: u32) -> Rgba {
         self.pixels[(y * self.width + x) as usize]
     }
 
+    /// Get the raw pixel data.
     #[inline]
-    pub fn pixels(&self) -> &[Rgba] {
+    pub fn raw_pixels(&self) -> &[Rgba] {
         &self.pixels
     }
 
