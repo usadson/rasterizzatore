@@ -31,10 +31,8 @@ impl Canvas {
         self.pixels[y * self.width as usize + x] = color;
     }
 
-    // from: 0,  10
-    // to:   10, 0
-    pub fn line(&mut self, from: Point, to: Point, color: Rgba) {
-        // https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)
+    /// Draw a line with a solid fill.
+    pub fn draw_solid_line(&mut self, from: Point, to: Point, color: Rgba) {
         let dx = to.x() - from.x();
         let dy = to.y() - from.y();
 

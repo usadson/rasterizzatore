@@ -11,7 +11,7 @@ fn main() {
 
     canvas.clear(Rgba::BLUE);
 
-    canvas.line(Point::new(1.0, 1.0), Point::new(2.0, 2.0), Rgba::RED);
+    canvas.draw_solid_line(Point::new(1.0, 1.0), Point::new(2.0, 2.0), Rgba::RED);
 
     canvas.dump_to_console();
 }
