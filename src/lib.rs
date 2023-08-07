@@ -1,14 +1,20 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+// Copyright (C) 2023 Tristan Gerritsen <tristan@thewoosh.org>
+// All Rights Reserved.
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+mod canvas;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+
+#[cfg(feature = "dump")]
+mod dump;
+
+mod point;
+mod rgba;
+
+pub use self::{
+    canvas::Canvas,
+    point::Point,
+    rgba::Rgba,
+};
+
+#[cfg(feature = "dump")]
+pub use self::dump::DumpToConsole;

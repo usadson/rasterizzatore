@@ -7,4 +7,10 @@ license = "Apache-2.0"
 description = "A fast CPU path rasterizer"
 homepage = "https://github.com/usadson/rasterizzatore"
 
+[features]
+default = ["dump", "dump-colored"]
+dump = []
+dump-colored = ["dep:colored"]
+
 [dependencies]
+colored = { version = "*", optional = true }
